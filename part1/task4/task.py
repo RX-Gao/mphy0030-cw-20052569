@@ -49,22 +49,23 @@ if __name__ == '__main__':
     vertices_25 = lowpass_mesh_smoothing(triangles, vertices_10, iterations=25-10)
     
     # plot results
-    fig = plt.figure()
-    ax = Axes3D(fig)
+    fig = plt.figure(figsize=(6,20))
+    ax = fig.add_subplot(4, 1, 1, projection='3d')
     ax.plot_trisurf(vertices[:,0], vertices[:,1], vertices[:,2], triangles=triangles, color='b', alpha=0.3)
     plt.title("0 iteration", fontsize=15)
-    fig = plt.figure()
-    ax = Axes3D(fig)
+    
+    ax = fig.add_subplot(4, 1, 2, projection='3d')
     ax.plot_trisurf(vertices_5[:,0], vertices_5[:,1], vertices_5[:,2], triangles=triangles, color='b', alpha=0.3)
     plt.title("5 iterations", fontsize=15)
-    fig = plt.figure()
-    ax = Axes3D(fig)
+    
+    ax = fig.add_subplot(4, 1, 3, projection='3d')
     ax.plot_trisurf(vertices_10[:,0], vertices_10[:,1], vertices_10[:,2], triangles=triangles, color='b', alpha=0.3)
     plt.title("10 iterations", fontsize=15)
-    fig = plt.figure()
-    ax = Axes3D(fig)
+    
+    ax = fig.add_subplot(4, 1, 4, projection='3d')
     ax.plot_trisurf(vertices_25[:,0], vertices_25[:,1], vertices_25[:,2], triangles=triangles, color='b', alpha=0.3)
     plt.title("25 iterations", fontsize=15)
+    plt.savefig("mesh smoothing.png")
     plt.show()
     
     

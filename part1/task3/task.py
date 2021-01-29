@@ -70,5 +70,6 @@ if __name__ == '__main__':
     plt.text(len(fx_list)/2, (fx_list[len(fx_list)-1]+fx_list[0])/10, \
              "Epoch: %d\nminimum: %.4f\nsolution: %.4f %.4f %.4f" %(len(fx_list), np.round(fx_list[len(fx_list)-1]), \
                solution[0], solution[1], solution[2]), fontsize=12)
+    plt.savefig("gradient descent.png")
     plt.show()
 

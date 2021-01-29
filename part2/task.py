@@ -124,8 +124,8 @@ if __name__ == '__main__':
       Image3D_object = Image3D(Image)
       
       # parameters definition
-      sigma, LAMBDA = 30, 0.001
-      NUM = [4, 4, 4]
+      sigma, LAMBDA = 40, 0.001
+      NUM = [3, 3, 3]
       randomness = 0.5
       
       # warp image
@@ -135,10 +135,14 @@ if __name__ == '__main__':
       warpImage = FreeFormDeformation_object.random_transform(Image3D_object, RBFSpline, randomness)
       
       # plot original and warped slices
-      plt.figure()
+      plt.figure(figsize = (15,15))
+      plt.subplot(211)
       plt.imshow(Image3D_object.image[:,:,15], cmap ='gray')
-      plt.figure()
+      plt.title("original image slice")
+      plt.subplot(212)
       plt.imshow(warpImage[:,:,15], cmap ='gray')
+      plt.title("warped image slice")
+      plt.savefig('sclices.png')
       plt.show()
 
 

@@ -45,9 +45,9 @@ if __name__ == '__main__':
     p_list = [0.1,0.5,0.9]
     color_dict = {0.1:'#ADD8E6', 0.5:'#00BFFF', 0.9:'#4682B4'}
     title_dict = {0.1:'10th percentile', 0.5:'50th percentile', 0.9:'90th percentile'}
-    fig = plt.figure()
-    ax = Axes3D(fig)
-    for pi in p_list:
+    fig = plt.figure(figsize=(5,20))
+    ax = fig.add_subplot(4, 1, 1, projection='3d')
+    for i, pi in enumerate(p_list):
         # calculate percentiles
         percentile = max(p)*pi   
         # find all positions of approximate percentiles
@@ -67,8 +67,7 @@ if __name__ == '__main__':
         z = c * np.outer(np.ones(np.size(u)), np.cos(v)) + mean[2]
         
         # plot the surface
-        fig1 = plt.figure()
-        ax1 = Axes3D(fig1)
+        ax1 = fig.add_subplot(4, 1, i+2, projection='3d')
         ax1.plot_surface(x, y, z, cmap=cm.coolwarm, alpha=0.8)
         ax1.set_xlabel('x1')
         ax1.set_xlim(-0.1, 1.1)
@@ -84,5 +83,5 @@ if __name__ == '__main__':
     ax.set_zlabel('x3')
     ax.set_zlim(-0.1, 1.1)
     ax.set_title("three ellipsoid surfaces", fontsize=15)
+    plt.savefig("three ellipsoid surfaces.png")
     plt.show()
-   

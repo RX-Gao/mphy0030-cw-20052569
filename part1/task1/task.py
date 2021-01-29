@@ -48,6 +48,7 @@ if __name__ == '__main__':
     plt.imshow(image[:,:,10], cmap ='gray')
     plt.subplot(313)
     plt.imshow(image[:,:,20], cmap ='gray')
+    plt.savefig('images.png')
     plt.show()
     
     
